@@ -1,5 +1,5 @@
 const { REST, Routes } = require('discord.js');
-
+const { token, CLIENT_ID } = require('./config.json');
 const commands = [
   {
     name: 'ping',
@@ -7,13 +7,13 @@ const commands = [
   },
 ];
 
-const rest = new REST({ version: '10' }).setToken('MTAyMDUzNTYxNDcyNDEzMjkzNQ.GhMZPF.rttbdpspIgfchhwQf_lW9vxDb3DjrvbZ0HlBlY');
+const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
   try {
     console.log('Started refreshing application (/) commands.');
 
-    await rest.put(Routes.applicationCommands("1020535614724132935"), { body: commands });
+    await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
 
     console.log('Successfully reloaded application (/) commands.');
   } catch (error) {
@@ -36,4 +36,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login("MTAyMDUzNTYxNDcyNDEzMjkzNQ.GhMZPF.rttbdpspIgfchhwQf_lW9vxDb3DjrvbZ0HlBlY");
+client.login(token);
