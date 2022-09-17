@@ -2,7 +2,7 @@
   "name": "bot-uwu",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "discord-api-types": "^0.37.10",
     "discord.js": "^14.3.0",
